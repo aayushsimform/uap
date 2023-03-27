@@ -10,6 +10,7 @@ import { PhotosEditComponent } from './component/photo/photos-edit/photos-edit.c
 
 import { UserDetailsComponent } from './component/user/user-details/user-details.component';
 import { UserEditComponent } from './component/user/user-edit/user-edit.component';
+import { UserNewComponent } from './component/user/user-new/user-new.component';
 import { UserComponent } from './component/user/user.component';
 
 
@@ -19,7 +20,8 @@ const routes: Routes = [
     path:"user",component:UserComponent,children:[
       {path: ':userId', component: UserDetailsComponent},
       {path:'new',component: UserEditComponent},
-      {path:':id/edit',component : UserEditComponent}
+      {path:':userId/edit',component : UserEditComponent},
+      
     ]
   },
   {

@@ -30,6 +30,7 @@ import { PhotoService } from './component/photo/photo.service';
 import { AlbumListComponent } from './component/album/album-list/album-list.component';
 import { AlbumService } from './component/album/album.service';
 import { AlbumItemssComponent } from './component/album/album-list/album-itemss/album-itemss.component';
+import { UserNewComponent } from './component/user/user-new/user-new.component';
 
 
 
@@ -54,7 +55,8 @@ import { AlbumItemssComponent } from './component/album/album-list/album-itemss/
     PhotosListComponent,
     PhotoItemComponent,
     AlbumListComponent,
-    AlbumItemssComponent 
+    AlbumItemssComponent,
+    UserNewComponent 
   ],
   imports: [
     BrowserModule,

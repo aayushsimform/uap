@@ -52,13 +52,24 @@ getUser():Observable<Users[]>{
     this.usersChanged.next(this.users.slice());
   }
 
-  updateUser(index: number, newUser: Users) {
-    this.users[index] = newUser;
-    this.usersChanged.next(this.users.slice());
+  // updateUser(index: number, newUser: Users) {
+  //   this.users[index] = newUser;
+  //   this.usersChanged.next(this.users.slice());
+  // }
+
+  updateUser(_id: string, newUser: Users){
+    return this.http
+    .put(`${this.url}/user/${_id}`, newUser)
+    .subscribe((response) => response);
+  }
+  deleteUser(_id: string){
+    return this.http
+    .delete(`${this.url}/user/${_id}`)
+    .subscribe((response) => response);
   }
 
-  deleteUser(index: number) {
-    this.users.splice(index, 1);
-    this.usersChanged.next(this.users.slice());
-  }
+  // deleteUser(index: number) {
+  //   this.users.splice(index, 1);
+  //   this.usersChanged.next(this.users.slice());
+  // }
 }

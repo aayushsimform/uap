@@ -10,7 +10,7 @@ import { UserService } from './users.service';
 })
 export class UserComponent implements OnInit {
   selectedUser! : Users;
-  constructor() { }
+  constructor(private userService:UserService) { }
   displayStyle = "none";
   
   openPopup() {
@@ -20,6 +20,11 @@ export class UserComponent implements OnInit {
     this.displayStyle = "none";
   }
   ngOnInit(): void {
+    this.userService.userSelected.subscribe((
+      (user:Users)=>{
+        this.selectedUser = user
+      }
+    ))
   }
 
 }

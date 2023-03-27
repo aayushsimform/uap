@@ -26,13 +26,16 @@ export class UserEditComponent implements OnInit {
       let phone_number ;
   
       if(this.editMode){
-        // const user = this.userService.getUsers(this.userId).subscribe(user => this.user = user
-          
-          
-        //   );;
-        //  first_name = user.first_name;
-        //  last_name = user.last_name;
-        //  phone_number = user.phone_number;
+      this.userService.getUserDetail(this.userId).subscribe(user =>{
+        phone_number = user.phone_number;
+        first_name = user.first_name;
+        last_name = user.last_name;   
+        });
+        
+        
+        
+        
+       
       }
   
       this.userForm = new FormGroup({
@@ -61,7 +64,7 @@ export class UserEditComponent implements OnInit {
       this.userForm.value['phone_number']
     );
     if(this.editMode){
-      this.userService.updateUser(this.id, newUser);
+      this.userService.updateUser(this.userId, newUser);
 
     }else{
       this.userService.addUser(newUser);
