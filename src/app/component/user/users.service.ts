@@ -34,10 +34,19 @@ getUser():Observable<Users[]>{
 
 }
 
-  getUsers(index: number) {
-    return this.users[index];
-  }
-
+  // getUsers(index: number) {
+  //   return this.users[index];
+  // }
+   getUserDetail(id:string):Observable<Users>{
+    console.log("Hello this is Get User",id);
+    
+    return this.http.get<Users>(`${this.url}/user/${id}`).pipe(
+        map((response: any) => {
+          console.log(response);
+          return response;
+        })
+      );
+   }
   addUser(user : Users) {
     this.users.push(user);
     this.usersChanged.next(this.users.slice());

@@ -11,6 +11,7 @@ import { UserService } from '../users.service';
 })
 export class UserEditComponent implements OnInit {
   id!: number;
+  userId!:string;
   editMode = false;
   userForm!: FormGroup;
   constructor( private route:ActivatedRoute,
@@ -25,10 +26,13 @@ export class UserEditComponent implements OnInit {
       let phone_number ;
   
       if(this.editMode){
-        const user = this.userService.getUsers(this.id);
-         first_name = user.first_name;
-         last_name = user.last_name;
-         phone_number = user.phone_number;
+        // const user = this.userService.getUsers(this.userId).subscribe(user => this.user = user
+          
+          
+        //   );;
+        //  first_name = user.first_name;
+        //  last_name = user.last_name;
+        //  phone_number = user.phone_number;
       }
   
       this.userForm = new FormGroup({

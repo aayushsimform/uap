@@ -9,9 +9,9 @@ import { UserService } from '../users.service';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
-  id!: number;
+  userId!: string;
   user!: Users;
-
+  id!: number;
   constructor(private userService : UserService,
     private route: ActivatedRoute,
     private router:Router) { }
@@ -19,8 +19,17 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params : Params)=>{
-        this.id = +params['id'];
-        this.user = this.userService.getUsers(this.id);
+
+        this.userId = params['userId'];
+
+        
+        this.userService.getUserDetail(this.userId).subscribe(user => {
+          this.user = user;
+        console.log('Userrs',this.user);
+        }
+          
+          
+          );
       }
         
     );
