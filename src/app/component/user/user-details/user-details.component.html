@@ -1,0 +1,41 @@
+
+<div class="row">
+    <h1>User's Details</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h2> Full Name : {{ user.first_name }} {{ user.last_name}}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- <div class="btn-group" >
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle">
+          Manage Recipe <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">To Shopping List</a></li>
+          <li><a href="#">Edit Recipe</a></li>
+          <li><a href="#">Delete Recipe</a></li>
+        </ul>
+      </div> -->
+    </div>
+  </div>
+  
+
+  <button type="button" class="btn btn-dark" (click)="onEditUser()">Edit User</button>&nbsp;
+  <button type="button" class="btn btn-danger" (click)="onDeleteUser()">Delete User</button>
+  
+  <div class="row">
+    <div class="col-xs-12">
+     Contact Number :  {{ user.phone_number }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+
+    </div>
+  </div>
+  
