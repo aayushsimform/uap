@@ -36,7 +36,7 @@ export class UserDetailsComponent implements OnInit {
 
   }
   onEditUser(){
-    this.router.navigate(['edit'],{relativeTo : this.route})
+    this.router.navigate(['edituser',this.userId])
   }
   onDeleteUser(){
     this.userService.deleteUser(this.userId);

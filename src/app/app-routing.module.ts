@@ -18,12 +18,10 @@ const routes: Routes = [
   { path: 'user',component: UserComponent, pathMatch: 'full' },
   {
     path:"user",component:UserComponent,children:[
-      {path: ':userId', component: UserDetailsComponent},
-      {path:'new',component: UserEditComponent},
-      {path:':userId/edit',component : UserEditComponent},
-      
-    ]
+      {path: ':userId', component: UserDetailsComponent}]
   },
+  {path:'newuser',component:UserEditComponent},
+  {path:'edituser/:userId',component:UserEditComponent},
   {
     path:"album",component:AlbumComponent,children:[
       {path: ':id', component: AlbumDetailsComponent},

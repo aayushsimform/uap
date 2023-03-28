@@ -27,7 +27,7 @@ export class UserService {
 getUser():Observable<Users[]>{
     return this.http.get<Users[]>(`${this.url}/user`).pipe(
         map((response: any) => {
-          console.log(response);
+          
           return response;
         })
       );
@@ -48,8 +48,11 @@ getUser():Observable<Users[]>{
       );
    }
   addUser(user : Users) {
-    this.users.push(user);
-    this.usersChanged.next(this.users.slice());
+    console.log(user);
+    return this.http
+    .post(`${this.url}/user`, user)
+    .subscribe((response) => response); 
+    
   }
 
   // updateUser(index: number, newUser: Users) {

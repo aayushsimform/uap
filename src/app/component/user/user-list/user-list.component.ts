@@ -25,7 +25,7 @@ export class UserListComponent implements OnInit {
    
   }
   onNewUser(){
-    this.router.navigate(['new'],{relativeTo : this.route})
+    this.router.navigate(['newuser'])
   }
   displayStyle = "none";
   

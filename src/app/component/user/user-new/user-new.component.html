@@ -1,1 +1,68 @@
-<p>user-new works!</p>
+
+<button
+  style="margin: 50px; padding: 10px"
+  type="button"
+  class="btn btn-primary"
+  (click)="openPopup()">New User
+</button>
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">New User</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <!--  -->
+            <div class="row mt-2">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">First Name</label>
+                        <input type="text" id="first_name" formControlName="first_name" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Last Name</label>
+                        <input type="text" id="last_name" formControlName="last_name" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Phone Number</label>
+                        <input type="text" id="phone_number" formControlName="phone_number" class="form-control">
+                    </div>
+                </div>
+            </div>
+        
+           
+            <br>
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary">{{'ADD'}}</button>&nbsp;
+                    <!-- <button type="submit" class="btn btn-success">EDIT</button>&nbsp; -->
+                     <!-- <button type="button" class="btn btn-danger" (click)="onCancel()">CANCEL</button> -->
+
+                </div>
+            </div>
+        </form>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

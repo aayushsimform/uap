@@ -20,42 +20,44 @@ export class UserEditComponent implements OnInit {
     }
 
     //use Reactive form Approach
-    private initForm(){
-      let first_name ='';
-      let last_name = '';
-      let phone_number ;
   
-      if(this.editMode){
-      this.userService.getUserDetail(this.userId).subscribe(user =>{
-        phone_number = user.phone_number;
-        first_name = user.first_name;
-        last_name = user.last_name;   
-        });
-        
-        
-        
-        
-       
-      }
-  
-      this.userForm = new FormGroup({
-        'first_name': new FormControl(first_name, Validators.required),
-        'last_name':new FormControl(last_name, Validators.required),
-        'phone_number': new FormControl(phone_number, Validators.required)
-      })
-    }
   ngOnInit(): void {
+    console.log('Edit Component called');
+    
     this.route.params.subscribe(
       (params:Params)=>{
-        this.id = + params['id'];
-        this.editMode = params['id']!= null;
+        this.id = + params['userId'];
+        this.editMode = params['userId']!= null;
         console.log(this.editMode);
         this.initForm();
         
       }
     )
   }
+  private initForm(){
+    let first_name ='';
+    let last_name = '';
+    let phone_number ;
 
+    if(this.editMode){
+    this.userService.getUserDetail(this.userId).subscribe(user =>{
+      phone_number = user.phone_number;
+      first_name = user.first_name;
+      last_name = user.last_name;   
+      });
+      
+      
+      
+      
+     
+    }
+
+    this.userForm = new FormGroup({
+      'first_name': new FormControl(first_name, Validators.required),
+      'last_name':new FormControl(last_name, Validators.required),
+      'phone_number': new FormControl(phone_number, Validators.required)
+    })
+  }
    //on form submit 
    onSubmit(){
     const newUser = new Users(
