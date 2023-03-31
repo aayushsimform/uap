@@ -13,21 +13,22 @@ export class UserService {
       new Users('Vicky','Bist', 12123454),
      
      ];
+
  //private recipes: Recipe[] = [];
   constructor(private http:HttpClient) {}
   url = "http://localhost:3000"
-  setUser(user: Users[]) {
-    this.users = user;
+  // setUser(user: Users[]) {
+  //   this.users = user;
 
-    this.usersChanged.next(this.users.slice());
-  }
+  //   this.usersChanged.next(this.users.slice());
+  // }
 //   getUser() {
 //     return this.users.slice();
 //   }
 getUser():Observable<Users[]>{
     return this.http.get<Users[]>(`${this.url}/user`).pipe(
         map((response: any) => {
-          
+          this.usersChanged.next(response.slice())
           return response;
         })
       );
@@ -50,20 +51,15 @@ getUser():Observable<Users[]>{
   addUser(user : Users) {
     console.log(user);
     return this.http
-    .post(`${this.url}/user`, user)
-    .subscribe((response) => response); 
+    .post(`${this.url}/user`, user); 
     
   }
 
-  // updateUser(index: number, newUser: Users) {
-  //   this.users[index] = newUser;
-  //   this.usersChanged.next(this.users.slice());
-  // }
 
   updateUser(_id: string, newUser: Users){
     return this.http
     .put(`${this.url}/user/${_id}`, newUser)
-    .subscribe((response) => response);
+    .subscribe((response) => {response});
   }
   deleteUser(_id: string){
     return this.http

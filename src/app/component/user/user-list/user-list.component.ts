@@ -15,6 +15,11 @@ export class UserListComponent implements OnInit {
   constructor(private userService:UserService,private router:Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.userService.usersChanged.subscribe(res=>{
+      console.log('latest data',res);
+      this.users=res
+      
+    })
     this.userService.getUser().subscribe(
       user =>{
         this.users = user;
@@ -25,14 +30,14 @@ export class UserListComponent implements OnInit {
    
   }
   onNewUser(){
-    this.router.navigate(['newuser'])
+    this.router.navigate(['newuser']);
   }
   displayStyle = "none";
   
-  openPopup() {
-    this.displayStyle = "block";
-  }
-  closePopup() {
-    this.displayStyle = "none";
-  }
+  // openPopup() {
+  //   this.displayStyle = "block";
+  // }
+  // closePopup() {
+  //   this.displayStyle = "none";
+  // }
 }
