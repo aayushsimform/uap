@@ -35,6 +35,7 @@ import { UserNewComponent } from './component/user/user-new/user-new.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +64,8 @@ import { UserNewComponent } from './component/user/user-new/user-new.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
     
   ],
   providers: [UserService,PhotoService,AlbumService],
